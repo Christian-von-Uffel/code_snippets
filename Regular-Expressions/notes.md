@@ -4,22 +4,24 @@ Using regular expressions is great when you want to match patterns, aka find som
 
 For me, the pattern I'm looking for at the moment is a book's publication date so I can calculate how many days it's been since a book came out.
 
-So take these two date strings for instance:
+Take these two date strings for instance:
 
-  April 4, 1900
-  December 25, 1984
+  "April 4, 1900"
+  "December 25, 1984"
 
 They're different lengths. Have different values and mean different things.
 
 But they're both dates.
 
-Each string will compute as date and parse out to a time code using Date.parse()
+Each string will compute as a date and calculate a time code using Date.parse()
 
-  var time1 = Date.parse(April 4, 1900);
+  ```var time1 = Date.parse(April 4, 1900);
   console.log(time1);
+  ```
 
-  var tim2 = Date.parse(December 25, 1984);
+  ```var tim2 = Date.parse(December 25, 1984);
   console.log(time2);
+  ```
 
 But if we think about what each of these date strings specifically have in common we can create a pattern we can search for using RegEx.
 
