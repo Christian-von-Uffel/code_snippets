@@ -15,11 +15,13 @@ But they're both dates.
 
 Each string will compute as a date and calculate a time code using Date.parse()
 
-  ```var time1 = Date.parse(April 4, 1900);
+  ```
+  var time1 = Date.parse(April 4, 1900);
   console.log(time1);
   ```
 
-  ```var tim2 = Date.parse(December 25, 1984);
+  ```
+  var tim2 = Date.parse(December 25, 1984);
   console.log(time2);
   ```
 
