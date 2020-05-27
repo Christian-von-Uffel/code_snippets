@@ -25,24 +25,29 @@ But if we think about what each of these date strings specifically have in commo
 
 Each date string is a word, followed by a space, followed by an either 1 or 2-digit number, followed by a comma character, followed by a space character, followed by a 4-digit number.
 
-By looking at our RegEx snippets, we can see that this pattern would use snippets to find word characters (\w), an imprecise number of them `(*)`, a space (\s), a digit (\d), that's either a 1 or two-digit number ({1,2}) a comma ([,]), another space (\s), and a exact number of digits (\d{4}).
+By looking at our RegEx snippets, we can see this date pattern would use snippets to find word characters (\w), an imprecise number of them `(*)`, a space (\s), a number character (\d), that's either 1 or two-digits ({1,2}) a comma ([,]), another space (\s), and a 4-digit number (\d{4}).
 
-Using these RegEx snippets, we can simply combine these to find any date strings matching this pattern on our page.
+By simply combining these RegEx snippets, we can find any date strings matching this pattern on a page.
 
   \w*\s\d{1,2}[,]\s\d{4}
 
-## Replacing text using Regex
+## Replacing text using Regex in Atom
 
-You can replace groups of text uisng Regex when you group your RegEx expressions.
-
-You form groups of RegEx expressions by adding parentheses around RegEx snippets.
+You can replace groups of text using Regex when you group your RegEx expressions together by adding parentheses around RegEx snippets.
 
 Groups of regex expressions can be called using the "$" symbol and indexed using integers starting with 1.
 
-For instance if you wanted to replace a 10-digit phone number such as 1-212-555-1234 with a 7-digit number such as 555-1234, you could match the RegEx pattern using:
+For instance if you wanted to replace a 10-digit phone number such as 1-212-555-1234 with a 7-digit number such as 555-1234, you could match this phone number using the RegEx pattern:
 
-    (\d[-]\d{3}[-.])(\d{3}[-.])(\d{4})
+    (1[-]\d{3}[-.])(\d{3}[-.])(\d{4})
 
-And then you could replace this string using second and third RegEx groups:
+This would find phone numbers starting with one including the area code.
+
+By looking at the above parentheses, we can see that their are 3 groups of parentheses, corresponding with 3 groups.
+
+    (group 1)   (group2)  (group3)
+    (1-212-)    (555-)    (1234)
+
+By calling the specific groups we want, we could replace our 10-digit phone number with a 7-digit number by calling our second and third RegEx groups:
 
   $2$3
